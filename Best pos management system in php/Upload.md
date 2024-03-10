@@ -1,18 +1,14 @@
-# Kruxton CMS V1.0 - Arbitrary file upload vulnerability
+# Best pos management system in php V1.0 - Broken Access Control
 
 ### You do not need to log in and open the website storage directory
 
 Supplier:https://www.sourcecodester.com/php/16127/best-pos-management-system-php.html
 
-http://localhost/ajax.php?action=save_settings   -----> POST request ----->  'filename' can control some file name parameters
+http://localhost/ajax.php?action=save_settings   -----> POST request ----->  'filename' can control some filename parameters
 
-Vulnerability location: admin_class.php in the root directory of the website. Triggered by the save_settings function in ajax.php
+Vulnerability location: There is a save_settings function in the root directory of the website's admin_class.php file, which causes any file to be written. This function is triggered by the 'action' parameter of save_settings passed in from the ajax.php file.
 
 Web function point, after logging into the background, System Settings ->Image
-
-Note: Triggering this vulnerability does not require logging in.
-
-![1](/img/Best-pos-management-system-in-php/8.png)
 
 Source code location: line 165 of the admin_class.php file in the root path.
 
